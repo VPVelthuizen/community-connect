@@ -1,0 +1,32 @@
+<!-- LOGIN SECTION -->
+<div class="row login-section">
+    <div class="col s12 m8 l9 login-form-container">
+
+        <!-- LOGIN FORM -->
+        <div class="title-container" id="login-title">
+            <div class="bolder-container">
+                <h1><span class="bold">login</span></h1>
+            </div>
+        </div>
+
+        <form id="login-form" class="row login-form">
+            <div class="input-field col s10 offset-s1">
+                <input id="username-login" type="text" class="validate">
+                <label for="username-login">Username</label>
+            </div>
+            <div class="input-field col s10 offset-s1">
+                <input id="password-login" type="password" class="validate">
+                <label for="password-login">Password</label>
+            </div>
+            <div class="button-container col s10 offset-s1">
+                <button id="login-button" class="waves-effect waves-light btn yellow-button" type="submit"
+                    form="login-form">Login</button>
+                <a href="/signup" id="sign-up" class="sign-up">New User? Sign Up Here!
+                </a>
+            </div>
+        </form>
+
+
+    </div>
+{{> options}}
+</div>
