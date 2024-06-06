@@ -16,6 +16,22 @@ Company.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    cause: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    city: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    state: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    company_key: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
   },
   {
     sequelize,
