@@ -276,6 +276,83 @@ h4 {
     background-color: var(--yellow);
 }
 
+/* LOGIN PAGE STYLE */
+
+.login-section {
+    min-height: 92vh;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.login-form-container {
+    background: url('../images/login/loginBackground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.yellow-button,
+.other-options-container {
+    background-color: var(--yellow);
+}
+
+#login-title {
+    margin-bottom: 70px;
+}
+
+.sign-up {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.sign-up:hover {
+    color: var(--skyBlue);
+}
+
+.input-field>label {
+    color: var(--yellow);
+}
+
+/* OTHER OPTIONS STYLE */
+
+.other-options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.other-options-title {
+    text-align: right;
+    font-size: 30px;
+    line-height: 1.4em;
+}
+
+.other-options-desc {
+    font-size: 20px;
+    text-align: right;
+}
+
+.no-user-links {
+    text-align: right;
+}
+.no-user-link {
+    border-bottom: 1px solid var(--purple);
+    margin: 20px 0px 20px 20px;
+}
+
+.no-user-link a {
+    color: black;
+    font-size: 20px;
+}
+
+.no-user-link a:hover {
+    color: var(--purple);
+}
 @media only screen and (min-width: 601px) {
     h3 {
         text-align: left;
