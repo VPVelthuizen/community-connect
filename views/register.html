@@ -51,41 +51,42 @@
     <main>
 
 
-        <!-- SIGNUP SECTION -->
+        <!-- REGISTER COMPANY SECTION -->
          <div class="row login-section">
             <div class="col s12 m8 l9 login-form-container">
 
-                <!-- SIGNUP FORM -->
+                <!-- REGISTER FORM -->
                 <div class="title-container" id="login-title">
                     <div class="bolder-container">
-                        <h1><span class="bold">signup</span></h1>
+                        <h1><span class="bold">Register</span> Your Company</h1>
                     </div>
                 </div>
 
-                <form id="signup-form" class="row login-form">
+                <form id="register-form" class="row login-form">
                     <div class="input-field col s10 offset-s1">
-                        <input id="email-signup" type="email" class="validate">
-                        <label for="email-signup">Email</label>
+                        <input id="company-name" type="text" class="validate">
+                        <label for="company-name">Company Name</label>
                     </div>
                     <div class="input-field col s10 offset-s1">
-                        <input id="username-signup" type="text" class="validate">
-                        <label for="username-signup">Username</label>
+                        <input id="company-cause" type="text" class="validate">
+                        <label for="company-cause">Cause</label>
+                    </div>
+                    <div class="input-field col s5 offset-s1">
+                        <input id="primary-city" type="text" class="validate">
+                        <label for="primary-city">Primary City</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input id="primary-state" type="text" class="validate">
+                        <label for="primary-state">Primary State Initals</label>
                     </div>
                     <div class="input-field col s10 offset-s1">
-                        <input id="password-signup" type="text" class="validate">
-                        <label for="password-signup">Password</label>
-                    </div>
-                    <div class="input-field col s10 offset-s1">
-                        <input id="company-signup" type="password" class="validate">
-                        <label for="company-signup">Company Key</label>
+                        <input id="company-key" type="text" class="validate">
+                        <label for="company-key">Company Key</label>
                     </div>
                     <div class="button-container col s12 m10 offset-m1">
-                        <button id="signup-button" class="waves-effect waves-light btn yellow-button" type="submit" form="signup-form">Signup</button>
-                        <a href="/login" id="login" class="login">Already Have An Account? Log In Here!
+                        <button id="register-company-button" class="waves-effect waves-light btn yellow-button" type="submit" form="register-form">Register Company</button>
+                        <a href="/login" id="login" class="login">Already Have Account? Log In Here!
                         </a>
-                    </div>
-                    <div class="new-company-request col s10 offset-s1">
-                        <p class="new-company-request-text">Are you the first user from your company? <a id="new-company"href="/company">Create A Company Here!</a></p>
                     </div>
                 </form>
 
