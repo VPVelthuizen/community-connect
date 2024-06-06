@@ -1,0 +1,226 @@
+:root {
+    --mainFont: "Noto Sans", sans-serif;
+    --yellow: #ffde59;
+    --orange: #ff914d;
+    --purple: #a425ad;
+    --skyBlue: #5ce1e6;
+    --blue: #0097b2;
+    --grey: #383139;
+}
+
+body {
+    font-family: var(--mainFont);
+}
+
+/* NAVBAR STYLE */
+nav {
+    background-color: white;
+}
+
+.material-icons {
+    color: black;
+}
+
+nav ul li a {
+    color: black;
+    font-weight: 700;
+}
+
+.logo-image {
+    width: 200px;
+}
+
+/* HEADLINE STYLE */
+
+.headline-container {
+    min-height: 500px;
+    background: url('../images/homepage/blueHeadlineBackground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+.headline-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 25px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 300;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.title-container {
+    border-bottom: 1px solid var(--yellow);
+    display: flex;
+    align-items: stretch;
+}
+
+.bolder-container {
+    border-bottom: 5px solid var(--yellow);
+    padding-right: 100px;
+}
+
+h2 {
+    font-size: calc(2.7vw + 2.7vh);
+    color: white;
+    font-weight: 700;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    font-weight: 800;
+    font-size: 11px;
+    color: black;
+}
+#events-button {
+    background-color: var(--orange);
+}
+#forum-button {
+    background-color: var(--yellow);
+}
+
+/* MISSION STYLE */
+.mission-container {
+    min-height: 500px;
+    background-color: var(--purple);
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.mission-image {
+    width: 100%;
+}
+
+.mission-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mission-statement {
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
+
+.tilda-container {
+    font-size: 30px;
+    color: gray;
+}
+
+.larger-statement {
+    color: white;
+    font-size: calc(1.5vw + 1.5vh);
+    font-weight: 600;
+}
+
+#member-directory-button {
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 9.5px;
+}
+
+/* CAROUSEL SECTION STYLE */
+.carousel-section {
+    min-height: 500px;
+    margin-bottom: 0px;
+}
+.carousel-fixed-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel {
+    min-height: 500px;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+    color: black !important;
+}
+
+.carousel.carousel-slider .carousel-fixed-item.with-indicators {
+    bottom: 200px;
+}
+
+.carousel-image {
+    width: 100%;
+}
+
+.carousel-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.item-1 {
+    background-color: var(--orange);
+}
+
+.item-2 {
+    background-color: var(--yellow);
+}
+
+.item-3 {
+    background-color: var(--blue);
+}
+
+.carousel-desc-text {
+    text-align: center;
+}
+@media only screen and (min-width: 601px) {
+    h3 {
+        text-align: left;
+    }
+    .carousel-desc-text {
+        text-align: left;
+    }
+}
+@media only screen and (min-width: 750px) {
+    .btn {
+        font-size: 13px;
+    }
+    .button-container {
+        width: 50%;
+    }
+
+    #member-directory-button {
+        font-size: 13px;
+    }
+}
