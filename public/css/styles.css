@@ -276,6 +276,33 @@ h4 {
     background-color: var(--yellow);
 }
 
+/* LOGIN PAGE STYLE */
+
+.login-section {
+    min-height: 92vh;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.login-form-container {
+    background: url('../images/login/loginBackground.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.yellow-button,
+.other-options-container {
+    background-color: var(--yellow);
+}
+
+#login-title {
+    margin-bottom: 100px;
+}
 @media only screen and (min-width: 601px) {
     h3 {
         text-align: left;
