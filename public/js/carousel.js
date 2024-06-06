@@ -1,4 +1,4 @@
-// sourced from Stack Overflow user Oliver
+// sourced from Stack Overflow user Oliver https://stackoverflow.com/users/7421158/oliver
 
 //the function below are functions that run after the Dom Content has been loaded
 document.addEventListener('DOMContentLoaded', function() {

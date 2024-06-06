@@ -10,6 +10,11 @@
 
 body {
     font-family: var(--mainFont);
+    overflow-x: hidden;
+}
+
+.row {
+    margin-bottom: 0px !important;
 }
 
 /* NAVBAR STYLE */
@@ -41,7 +46,6 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 0px;
 }
 
 .headline-text-container {
@@ -97,9 +101,8 @@ h2 {
 
 /* MISSION STYLE */
 .mission-container {
-    min-height: 500px;
+    min-height: 520px;
     background-color: var(--purple);
-    margin-bottom: 0px;
     display: flex;
     align-items: center;
 }
@@ -142,7 +145,6 @@ h2 {
 /* CAROUSEL SECTION STYLE */
 .carousel-section {
     min-height: 500px;
-    margin-bottom: 0px;
 }
 .carousel-fixed-item {
     display: flex;
@@ -204,6 +206,76 @@ h3 {
 .carousel-desc-text {
     text-align: center;
 }
+
+/* DIVIDER STYLE */
+.divider-section {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.larger-logo {
+    width: 70%;
+}
+.divider-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    font-size: calc(2vw + 2vh);
+    font-weight: 900;
+}
+
+/* LINKS SECTION STYLE */
+
+.links-section {
+    height: 200px;
+}
+
+.link-1 {
+    background: url('../images/homepage/blueLinkImage.png');
+}
+.link-2 {
+    background: url('../images/homepage/orangeLinkImage.png');
+}
+.link-3 {
+    background: url('../images/homepage/purpleLinkImage.png');
+}
+
+.link-1,
+.link-2,
+.link-3 {
+    padding: 0px !important;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.links-section-text {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.page-footer {
+    background-color: var(--grey);
+}
+
+.footer-copyright {
+    background-color: black !important;
+}
+
+#contact-us-button {
+    background-color: var(--yellow);
+}
+
 @media only screen and (min-width: 601px) {
     h3 {
         text-align: left;
