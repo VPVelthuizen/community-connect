@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommUnity Connect</title>
+    <!-- MATERIAL ICON FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- NOTO SANS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- MATERIALIZE -->
+    <link rel="stylesheet" href="../public/css/materialize.min.css">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">
+                <img class="logo-image" src="../public/images/homepage/communityConnectLogo.png"
+                    alt="Community Connect Logo">
+            </a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Homepage</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/directory">Our Members</a></li>
+                <li><a href="/forum">Our Forum</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- RESPONSIVE SIDENAV -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/directory">Our Members</a></li>
+        <li><a href="/forum">Our Forum</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+    <main>
+
+
+        <!-- LOGIN SECTION -->
+         <div class="row login-section">
+            <div class="col s12 m8 l9 login-form-container">
+
+                <!-- LOGIN FORM -->
+                <div class="title-container" id="login-title">
+                    <div class="bolder-container">
+                        <h1><span class="bold">signup</span></h1>
+                    </div>
+                </div>
+
+                <form id="signup-form" class="row login-form">
+                    <div class="input-field col s10 offset-s1">
+                        <input id="email-signup" type="email" class="validate">
+                        <label for="email-signup">Email</label>
+                    </div>
+                    <div class="input-field col s10 offset-s1">
+                        <input id="username-signup" type="text" class="validate">
+                        <label for="username-signup">Username</label>
+                    </div>
+                    <div class="input-field col s10 offset-s1">
+                        <input id="password-signup" type="text" class="validate">
+                        <label for="password-signup">Password</label>
+                    </div>
+                    <div class="input-field col s10 offset-s1">
+                        <input id="company-signup" type="password" class="validate">
+                        <label for="company-signup">Company Key</label>
+                    </div>
+                    <div class="button-container col s12 m10 offset-m1">
+                        <button id="signup-button" class="waves-effect waves-light btn yellow-button" type="submit" form="signup-form">Signup</button>
+                        <a href="/login" id="login" class="login">Already Have An Account? Log In Here!
+                        </a>
+                    </div>
+                    <div class="new-company-request col s10 offset-s1">
+                        <p class="new-company-request-text">Are you the first user from your company? <a id="new-company"href="/company">Create A Company Here!</a></p>
+                    </div>
+                </form>
+
+
+            </div>
+        <!-- OTHER OPTIONS -->
+            <div class="col s12 m4 l3 other-options-container">
+                <h3 class="other-options-title">Just Here to Browse?</h3>
+                <p class="other-options-desc">These features are available to people without an account!</p>
+                <ul class="no-user-links">
+                    <li class="no-user-link"><a href="/events">Find Events</a></li>
+                    <li class="no-user-link"><a href="/forum">Browse Our Forums</a></li>
+                </ul>
+            </div>
+         </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="page-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <p class="white-text text-lighten-4">Please let us know your feedback or if you have any questions!</p>
+                  <a class="waves-effect waves-light btn" id="contact-us-button">Contact Us!</a>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Directory</h5>
+                  <ul>
+                    <li><a class="white-text text-lighten-3" href="/">Homepage</a></li>
+                    <li><a class="white-text text-lighten-3" href="/events">Events</a></li>
+                    <li><a class="white-text text-lighten-3" href="/directory">Members</a></li>
+                    <li><a class="white-text text-lighten-3" href="/forum">Forum</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+              2024 Community Connect
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+              </div>
+            </div>
+          </footer>
+
+    </main>
+    <!-- MATERIALIZE JS and JQUERY -->
+    <script src="../public/js/jquery-3.7.1.slim.min.js"></script>
+    <script src="../public/js/materialize.min.js"></script>
+    <script>
+        // SIDENAV INIT
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>
