@@ -304,14 +304,15 @@ h4 {
     margin-bottom: 70px;
 }
 
+.login,
 .sign-up {
     color: var(--yellow);
     font-weight: 700;
     margin-bottom: 30px;
 }
-
+.login:hover, 
 .sign-up:hover {
-    color: var(--skyBlue);
+    color: var(--orange);
 }
 
 .input-field>label {
@@ -351,7 +352,22 @@ h4 {
 }
 
 .no-user-link a:hover {
-    color: var(--purple);
+    color: var(--orange);
+}
+
+/* SIGNUP STYLE */
+
+.new-company-request-text {
+    font-size: calc(1.3vw + 1.3vh);
+    color: white;
+}
+
+#new-company {
+    color: var(--yellow);
+    display: block;
+}
+#new-company:hover {
+    color: var(--orange);
 }
 @media only screen and (min-width: 601px) {
     h3 {
