@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = required('bcrypt');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
+const Company = require('./Company');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -20,13 +21,16 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    company_key: {
+      type: DataTypes.STRING,
+      allowNull: false, 
+    },
     company_id: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
         references: {
             model: 'company',
             key: 'id',
-          }
+          },
     },
     email: {
       type: DataTypes.STRING,
@@ -40,13 +44,21 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        length: [8],
+        len: [8],
       },
     },
   },
   {
     hooks: {
       beforeCreate: async (newUserData) => {
+        // Check if the company key exists and assign the corresponding company ID
+        const company = await Company.findOne({ where: { company_key: newUserData.company_key } });
+        if (company) {
+          newUserData.company_id = company.id;
+        } else {
+          throw new Error('Company key does not exist');
+        }
+
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },

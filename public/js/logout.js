@@ -1,7 +1,7 @@
 const logoutHandler = async () => {
   try {
     // Send a request to the server to log out the user
-    const response = await fetch("TODO", {
+    const response = await fetch("/api/users/logout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
@@ -9,7 +9,7 @@ const logoutHandler = async () => {
     // Check if the response is OK
     if (response.ok) {
       // Redirect the user to the login page or homepage
-      document.location.replace("TODO");
+      document.location.replace("/");
     } else {
       alert("Failed to log out. Please try again!");
     }

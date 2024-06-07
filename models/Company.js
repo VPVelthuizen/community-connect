@@ -12,7 +12,7 @@ Company.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    company_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -30,10 +30,16 @@ Company.init(
     },
     company_key: {
         type: DataTypes.STRING,
-        allowNull: false
-    }
+        allowNull: true
+    },
   },
   {
+    hooks: {
+      beforeCreate(company) {
+        // Generate a random 8-character password
+        company.company_key = Math.random().toString(36).slice(-8);
+      }
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

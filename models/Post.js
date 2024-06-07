@@ -21,7 +21,7 @@ Post.init(
         allowNull: false,
     },
     forum_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       reference: {
         model: 'forum',

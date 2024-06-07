@@ -1,17 +1,17 @@
-const Comment = require('./Comment.js');
+// const Comment = require('./Comment.js');
 const Company = require('./Company.js');
-const Event = require('./Event.js');
-const Forum = require('./Forum.js');
-const Post = require('./Post.js');
-const Tag = require('./Tag.js');
+// const Event = require('./Event.js');
+// const Forum = require('./Forum.js');
+// const Post = require('./Post.js');
+// const Tag = require('./Tag.js');
 const User = require('./User.js');
 
 module.exports = {
-    Comment,
+    // Comment,
     Company,
-    Event,
-    Forum,
-    Post,
-    Tag,
+    // Event,
+    // Forum,
+    // Post,
+    // Tag,
     User
 };
