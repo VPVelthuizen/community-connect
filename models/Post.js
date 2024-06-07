@@ -25,7 +25,7 @@ Post.init(
       allowNull: false,
       reference: {
         model: 'Forum',
-        key: 'forum_name',
+        key: 'forum_id',
       }
     }
   },

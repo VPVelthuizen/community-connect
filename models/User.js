@@ -21,7 +21,7 @@ User.init(
         allowNull: false,
         reference: {
             model: 'Company',
-            key: 'company_name',
+            key: 'company_id',
           }
     }
   },
