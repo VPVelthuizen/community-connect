@@ -30,8 +30,6 @@ const signupFormHandler = async (event) => {
     } catch (error) {
       alert("An error occurred during signup. Please try again later."); // Show a general error alert
     }
-  } else {
-    alert("Please fill out all fields."); // Show an alert if any required fields are missing
   }
 };
 
