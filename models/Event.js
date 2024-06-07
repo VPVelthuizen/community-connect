@@ -12,17 +12,21 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    company_name: {
+    company_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      reference: {
-        model: 'Company',
-        key: 'company_id',
+      references: {
+        model: 'company',
+        key: 'id',
       }
     },
-    location: {
+    city: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
     }
   },
   {
