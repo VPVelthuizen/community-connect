@@ -5,15 +5,15 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector("#email-signup").value.trim();
   const username = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-  const companyKey = document.querySelector("#company-signup").value.trim();
+  const company_key = document.querySelector("#company-signup").value.trim();
 
   // Check if all required fields are provided
-  if (email && username && password && companyKey) {
+  if (email && username && password && company_key) {
     try {
       // Send a POST request to the server with the signup data
-      const response = await fetch("TODO", {
+      const response = await fetch("/api/users/", {
         method: "POST",
-        body: JSON.stringify({ email, username, password, companyKey }),
+        body: JSON.stringify({ email, username, password, company_key }),
         headers: { "Content-Type": "application/json" },
       });
 
@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
 
       // Check if the response is OK
       if (response.ok) {
-        document.location.replace("TODO");
+        document.location.replace("/");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to sign up. Please try again!"); // error message

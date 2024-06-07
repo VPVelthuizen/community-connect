@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
   if (username && password) {
     try {
       // Send a POST request to the server with username and password
-      const response = await fetch(TODO, {
+      const response = await fetch('/api/users/login', {
         // Replace "/login" with the actual endpoint
         method: "POST",
         body: JSON.stringify({ username, password }),
@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
 
       // Check if the response is OK
       if (response.ok) {
-        document.location.replace("TODO"); 
+        document.location.replace("/"); 
       } else {
         alert("Incorrect username or password. Please try again!"); // Show an error alert if login failed
       }
@@ -28,6 +28,7 @@ const loginFormHandler = async (event) => {
       alert("An error occurred.  Please try again later!")
     }
 };
+}
 
 // Select the login form and add a submit event listener
 const loginForm = document.querySelector("#login-form");
