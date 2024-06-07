@@ -20,13 +20,17 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-    forum: {
+    forum_id: {
       type: DataTypes.STRING,
       allowNull: false,
       reference: {
-        model: 'Forum',
-        key: 'forum_id',
+        model: 'forum',
+        key: 'id',
       }
+    },
+    date_posted: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   },
   {
