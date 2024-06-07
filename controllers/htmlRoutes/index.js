@@ -14,4 +14,5 @@ router.use('/', homepage);
 router.use('/login', login);
 router.use('/register', register);
 router.use('/signup', signup);
+
 module.exports = router;
