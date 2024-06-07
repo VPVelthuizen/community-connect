@@ -20,17 +20,13 @@ const loginFormHandler = async (event) => {
 
       // Check if the response is OK
       if (response.ok) {
-        document.location.replace("/dashboard"); // Redirect to the dashboard page
+        document.location.replace("TODO"); 
       } else {
         alert("Incorrect username or password. Please try again!"); // Show an error alert if login failed
       }
     } catch (error) {
-      console.error("Error during login:", error); // Log any errors that occur during the fetch request
-      alert("An error occurred during login. Please try again later."); // Show a general error alert
+      alert("An error occurred.  Please try again later!")
     }
-  } else {
-    alert("Please enter both username and password."); // Show an alert if username or password is missing
-  }
 };
 
 // Select the login form and add a submit event listener
