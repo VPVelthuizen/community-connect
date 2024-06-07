@@ -9,7 +9,7 @@ const logoutHandler = async () => {
     // Check if the response is OK
     if (response.ok) {
       // Redirect the user to the login page or homepage
-      document.location.replace("/");
+      document.location.replace("/login");
     } else {
       alert("Failed to log out. Please try again!");
     }
@@ -19,5 +19,7 @@ const logoutHandler = async () => {
 };
 
 // Add event listener to the logout button
-const logoutButton = document.querySelector("#logout-button");
+const logoutButton = document.querySelector("#logout-link");
 logoutButton.addEventListener("click", logoutHandler);
+const logoutButton2 = document.querySelector("#logout-link-sidenav");
+logoutButton2.addEventListener("click", logoutHandler);

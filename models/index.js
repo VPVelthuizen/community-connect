@@ -6,6 +6,15 @@ const Company = require('./Company.js');
 // const Tag = require('./Tag.js');
 const User = require('./User.js');
 
+Company.hasMany(User, {
+    foreignKey: 'company_id',
+    onDelete: 'CASCADE'
+});
+
+User.belongsTo(Company, {
+    foreignKey: 'company_id'
+})
+
 module.exports = {
     // Comment,
     Company,
