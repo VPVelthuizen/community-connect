@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col s12 m3 l4 side-image-members">
+        <h3 class="white-text">Directory</h3>
+    </div>
+    <div class="col s12 m9 l8 main-directory-container">
+        {{#if companies.length}}
+        <div class="bolder-container">
+            <h1 class="black-text bold">Our Members</h1>
+        </div>
+        <table class="highlight">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th># of Users</th>
+                    <th>Based In:</th>
+                    <th>Cause</th>
+                    <th>Company Key</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each companies}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{users.length}}</td>
+                    <td>{{city}}, {{state}}</td>
+                    <td>{{cause}}</td>
+                    <td>{{company_key}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <h1 class="bold black-text">No Companies have enrolled yet</h1>
+        {{/if}}
+    </div>
+</div>

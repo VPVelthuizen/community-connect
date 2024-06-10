@@ -96,9 +96,11 @@ h2 {
     font-size: 11px;
     color: black;
 }
+
 #events-button {
     background-color: var(--orange);
 }
+
 #forum-button {
     background-color: var(--yellow);
 }
@@ -150,6 +152,7 @@ h2 {
 .carousel-section {
     min-height: 500px;
 }
+
 .carousel-fixed-item {
     display: flex;
     justify-content: space-between;
@@ -221,6 +224,7 @@ h3 {
 .larger-logo {
     width: 70%;
 }
+
 .divider-content-container {
     display: flex;
     flex-direction: column;
@@ -242,9 +246,11 @@ h4 {
 .link-1 {
     background: url('../images/homepage/blueLinkImage.png');
 }
+
 .link-2 {
     background: url('../images/homepage/orangeLinkImage.png');
 }
+
 .link-3 {
     background: url('../images/homepage/purpleLinkImage.png');
 }
@@ -267,6 +273,7 @@ h4 {
 .link-3:hover h3 {
     color: var(--black);
 }
+
 .link-1:hover,
 .link-2:hover,
 .link-3:hover {
@@ -326,7 +333,8 @@ h4 {
     font-weight: 700;
     margin-bottom: 30px;
 }
-.login:hover, 
+
+.login:hover,
 .sign-up:hover {
     color: var(--orange);
 }
@@ -357,6 +365,7 @@ h4 {
 .no-user-links {
     text-align: right;
 }
+
 .no-user-link {
     border-bottom: 1px solid var(--purple);
     margin: 20px 0px 20px 20px;
@@ -382,14 +391,22 @@ h4 {
     color: var(--yellow);
     display: block;
 }
+
 #new-company:hover {
     color: var(--orange);
 }
 
 /* PROFILE PAGE STYLE */
-
 .side-image-profile {
     background: url('../images/profile/profileImage.png');
+}
+
+.side-image-members {
+    background: url('../images/ourMembers/ourMembersImage.png');
+}
+
+.side-image-members,
+.side-image-profile {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -401,19 +418,23 @@ h4 {
     text-align: center;
 }
 
+.main-directory-container,
 .main-profile-container {
     height: 110vh;
     overflow-y: scroll;
 }
+
 .profile-title {
     border-bottom: 1px solid black;
 }
+
 .content-box {
     border: 1px solid gray;
     padding: 2px 100px 0px 20px;
     text-align: left;
     background-color: whitesmoke;
 }
+
 .profile-containers {
     margin: 10px 0px 25px 0px;
 }
@@ -426,20 +447,26 @@ h4 {
     h3 {
         text-align: left;
     }
+
     .carousel-desc-text {
         text-align: left;
     }
+    .side-image-members,
     .side-image-profile {
         height: 80vh;
     }
+
+    .main-directory-container,
     .main-profile-container {
         height: 80vh;
     }
 }
+
 @media only screen and (min-width: 750px) {
     .btn {
         font-size: 13px;
     }
+
     .button-container {
         width: 50%;
     }
