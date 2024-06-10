@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
 
       // Check if the response is OK
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace("/profile");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to sign up. Please try again!"); // error message
