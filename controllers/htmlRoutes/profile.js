@@ -19,6 +19,7 @@ router.get('/', withAuth, async (req, res) => {
             company_state: profile.company.state,
             company_cause: profile.company.cause,
             company_key: profile.company.company_key,
+            logged_in: req.session.logged_in,
         });
     } catch (err) {
         res.status(500).json(err);
