@@ -21,6 +21,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     company_key: {
       type: DataTypes.STRING,
       allowNull: false,

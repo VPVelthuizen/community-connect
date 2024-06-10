@@ -1,28 +1,22 @@
 const registerFormHandler = async (event) => {
-  const companyName = document.querySelector("#company-name").value.trim();
-  const companyCause = document.querySelector("#company-cause").value.trim();
-  const primaryCity = document.querySelector("#primary-city").value.trim();
-  const primaryState = document.querySelector("#primary-state").value.trim();
-  const companyKey = document.querySelector("#company-key").value.trim();
+  const name = document.querySelector("#company-name").value.trim();
+  const cause = document.querySelector("#company-cause").value.trim();
+  const city = document.querySelector("#primary-city").value.trim();
+  const state = document.querySelector("#primary-state").value.trim();
 
   // Check if all fields are provided
   if (
-    companyName &&
-    companyCause &&
-    primaryCity &&
-    primaryState &&
-    companyKey
+    name && cause && city && state
   ) {
     try {
       // Send a POST request to the server with the signup data
-      const response = await fetch("TODO", {
+      const response = await fetch("/api/companies/", {
         method: "POST",
         body: JSON.stringify({
-          companyName,
-          companyCause,
-          primaryCity,
-          primaryState,
-          companyKey,
+          name, 
+          cause, 
+          city, 
+          state
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -32,7 +26,7 @@ const registerFormHandler = async (event) => {
 
       // Check if the response is ok
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace("/signup");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to sign up.  Please try again!"); //error message
