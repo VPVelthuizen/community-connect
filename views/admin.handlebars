@@ -1,0 +1,38 @@
+<!-- ADMIN SIGNUP SECTION -->
+<div class="row login-section">
+    <div class="col s12 m8 l9 login-form-container">
+
+        <!-- ADMIN SIGNUP FORM -->
+        <div class="title-container" id="login-title">
+            <div class="bolder-container">
+                <h1><span class="bold">Create An Admin</span></h1>
+            </div>
+        </div>
+
+        <form id="admin-form" class="row login-form">
+            <div class="input-field col s10 offset-s1">
+                <input id="email-admin" type="email" class="validate">
+                <label for="email-admin">Email</label>
+            </div>
+            <div class="input-field col s10 offset-s1">
+                <input id="username-admin" type="text" class="validate">
+                <label for="username-admin">Username</label>
+            </div>
+            <div class="input-field col s10 offset-s1">
+                <input id="password-admin" type="text" class="validate">
+                <label for="password-admin">Password</label>
+            </div>
+            <div class="input-field col s10 offset-s1">
+                <h5 class="company-key-title">Company Key</h5>
+                <input disabled id="company-admin" type="text" value="{{company_key}}">
+                <label for="company-admin"></label>
+            </div>
+            <div class="button-container col s12 m10 offset-m1">
+                <button id="admin-button" class="waves-effect waves-light btn yellow-button" type="submit"
+                    form="admin-form">Create Admin</button>
+            </div>
+        </form>
+
+    </div>
+{{> options}}
+</div>

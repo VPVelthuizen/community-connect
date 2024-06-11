@@ -6,6 +6,7 @@ const homepage = require('./homepage.js');
 const login = require('./login.js');
 const register = require('./register.js');
 const signup = require('./signup.js');
+const admin = require('./admin.js')
 const directory = require('./directory.js');
 // const company = require('./company.js');
 const profile = require('./profile.js');
@@ -16,5 +17,6 @@ router.use('/register', register);
 router.use('/signup', signup);
 router.use('/profile', profile);
 router.use('/directory', directory);
+router.use('/admin', admin)
 
 module.exports = router;
