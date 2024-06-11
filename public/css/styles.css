@@ -405,6 +405,7 @@ h4 {
     background: url('../images/ourMembers/ourMembersImage.png');
 }
 
+.side-image-events,
 .side-image-members,
 .side-image-profile {
     background-position: center;
@@ -456,6 +457,7 @@ h4 {
     .carousel-desc-text {
         text-align: left;
     }
+    .side-image-events,
     .side-image-members,
     .side-image-profile {
         height: 80vh;
