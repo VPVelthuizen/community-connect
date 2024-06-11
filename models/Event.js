@@ -12,6 +12,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     company_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
