@@ -25,6 +25,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    is_admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
     company_key: {
       type: DataTypes.STRING,
       allowNull: false,

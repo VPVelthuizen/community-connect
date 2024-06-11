@@ -7,7 +7,11 @@
                     <div class="title-container">
                         <div class="bolder-container">
                             <h1 class="black-text bold">{{username}}</h1>
+                            {{#if is_admin}}
+                            <span>Admin of <span class="bold">{{company_name}}</span></span>
+                            {{else}}
                             <span>Employee of <span class="bold">{{company_name}}</span></span>
+                            {{/if}}
                         </div>
                     </div>
                 </div>
