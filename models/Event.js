@@ -24,6 +24,10 @@ Event.init(
         key: 'id',
       }
     },
+    date: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     city: {
         type: DataTypes.STRING,
         allowNull: false,
