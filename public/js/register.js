@@ -1,4 +1,5 @@
 const registerFormHandler = async (event) => {
+  event.preventDefault();
   const name = document.querySelector("#company-name").value.trim();
   const cause = document.querySelector("#company-cause").value.trim();
   const city = document.querySelector("#primary-city").value.trim();
@@ -26,7 +27,7 @@ const registerFormHandler = async (event) => {
 
       // Check if the response is ok
       if (response.ok) {
-        document.location.replace("/signup");
+        document.location.replace("/admin");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to sign up.  Please try again!"); //error message

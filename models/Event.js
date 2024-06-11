@@ -12,6 +12,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     company_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -19,6 +23,10 @@ Event.init(
         model: 'company',
         key: 'id',
       }
+    },
+    date: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     city: {
         type: DataTypes.STRING,
