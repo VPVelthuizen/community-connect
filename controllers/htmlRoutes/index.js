@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const homepage = require('./homepage.js');
-// const events = require('./events.js');
+const events = require('./events.js');
 // const forum = require('./forum.js');
 const login = require('./login.js');
 const register = require('./register.js');
@@ -18,5 +18,6 @@ router.use('/signup', signup);
 router.use('/profile', profile);
 router.use('/directory', directory);
 router.use('/admin', admin)
+router.use('/events', events)
 
 module.exports = router;
