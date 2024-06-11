@@ -1,13 +1,24 @@
 const router = require('express').Router();
-const { Event, Company } = require('../../models');
+const { Event, Company, User } = require('../../models');
 
   // create a new event
-  router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const newEvent = await Event.create(req.body);
+        // Retrieve the user ID from the session
+        const userId = 1;
+
+        // Find the user's company ID
+        const user = await User.findByPk(userId);
+        const companyId = user.company_id;
+
+        // Assign the company ID to the event before creating it
+        const eventData = { ...req.body, company_id: companyId };
+        const newEvent = await Event.create(eventData);
+
         res.json(newEvent);
     } catch (err) {
-        res.json(err);
+        console.log(err)
+        res.status(500).json(err);
     }
 });
 

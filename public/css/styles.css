@@ -69,15 +69,39 @@ h1 {
     font-weight: 600;
 }
 
+.title-container-blue,
 .title-container {
     border-bottom: 1px solid var(--yellow);
     display: flex;
     align-items: stretch;
 }
-
+.bolder-container-blue,
 .bolder-container {
     border-bottom: 5px solid var(--yellow);
     padding-right: 100px;
+}
+.title-container-blue,
+.bolder-container-blue {
+    border-color: var(--blue);
+}
+
+.title-container-blue {
+    flex-wrap: wrap;
+    border: 1px solid var(--blue);
+    margin: 20px 0px 20px 0px;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 3px black;
+    justify-content: space-between;
+}
+
+.bolder-container-blue {
+    padding-left: 20px;
+    padding-bottom: 20px;
+   flex: 1 0 300px;
+}
+
+.desc {
+    flex: 1 0 200px;
 }
 
 h2 {

@@ -24,10 +24,10 @@ Event.init(
         key: 'id',
       }
     },
-    date: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+    // date: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
     city: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -35,7 +35,11 @@ Event.init(
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false, 
+    },
   },
   {
     sequelize,
