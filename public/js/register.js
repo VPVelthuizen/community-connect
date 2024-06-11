@@ -1,4 +1,5 @@
 const registerFormHandler = async (event) => {
+  event.preventDefault();
   const name = document.querySelector("#company-name").value.trim();
   const cause = document.querySelector("#company-cause").value.trim();
   const city = document.querySelector("#primary-city").value.trim();
