@@ -12,7 +12,7 @@ CompanyTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    product_id: {
+    company_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'company',
