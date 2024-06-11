@@ -26,7 +26,7 @@ const registerFormHandler = async (event) => {
 
       // Check if the response is ok
       if (response.ok) {
-        document.location.replace("/signup");
+        document.location.replace("/admin");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to sign up.  Please try again!"); //error message
