@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Company, Event } = require('../../models')
 
+router.get('/', (req, res) => { res.render("events") });
+
 router.get('/:id', async (req, res) => {
     try {
         const eventData = await Event.findByPk(req.params.id, {
@@ -12,7 +14,7 @@ router.get('/:id', async (req, res) => {
             const event = eventData.get({ plain: true });
         console.log(event);
 
-        res.render("event", {
+        res.render("events", {
             name: event.name,
             city: event.city,
             state: event.state,
