@@ -21,11 +21,7 @@
     </div>
     <div class="profile-containers">
       <h6 class="bold profile-title">Phone Number:</h6>
-      {{#if phone}}
         <span class="content-box">{{phone}}</span>
-      {{else}}
-        <input type="text" id="phone-number" placeholder="Add Phone Number?" />
-      {{/if}}
     </div>
     <div class="profile-containers">
       <h6 class="bold profile-title">Password:</h6>
@@ -34,7 +30,7 @@
     <div class="button-container">
       <a
         class="waves-effect waves-light btn profile-buttons"
-        href="edit-profile.html"
+        href="/edit"
       >Edit Profile</a>
     </div>
 
@@ -67,9 +63,3 @@
     </div>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-></script>
-<script src="profile.js"></script>
