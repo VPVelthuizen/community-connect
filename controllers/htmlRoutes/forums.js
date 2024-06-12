@@ -20,4 +20,23 @@ router.get('/', async (req, res) => {
     
 });
 
+router.get('/:id', async (req, res) => { 
+    try {
+        const forumData = await Forum.findByPk(req.params.id);
+        const forum = forumData.map((forum) => {
+            const formattedForum = forum.get({ plain: true });
+            return formattedForum
+        });
+        console.log(forum)
+
+        res.render("forum", {
+            forum,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
+});
+
 module.exports = router;
