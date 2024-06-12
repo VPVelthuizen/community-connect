@@ -1,70 +1,52 @@
-$(document).ready(function () {
-  // Fetch user data when the page loads
-  async function fetchUserData() {
-    try {
-      const response = await fetch("/api/users/get-profile", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+// Handle form submission for updating user profile
+document.getElementById("editProfileForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-      if (response.ok) {
-        const user = await response.json();
-        $("#edit-email").val(user.email);
-        $("#edit-phone").val(user.phone);
-        M.updateTextFields(); // Reinitialize Materialize labels
-      } else {
-        alert("Failed to fetch user data. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      alert("An error occurred. Please try again later.");
-    }
-  }
+  const email = document.getElementById("edit-email").value.trim();
+  const phone = document.getElementById("edit-phone").value.trim();
+  const currentPassword = document.getElementById("current-password").value.trim();
+  const newPassword = document.getElementById("new-password").value.trim();
+  const confirmPassword = document.getElementById("confirm-password").value.trim();
 
-  // Call the function to fetch user data
-  fetchUserData();
-
-  // Handle form submission for updating user profile
-  $("#editProfileForm").on("submit", async function (event) {
-    event.preventDefault();
-
-    const email = $("#edit-email").val().trim();
-    const phone = $("#edit-phone").val().trim();
-    const currentPassword = $("#current-password").val().trim();
-    const newPassword = $("#new-password").val().trim();
-    const confirmPassword = $("#confirm-password").val().trim();
-
-    if (newPassword && newPassword !== confirmPassword) {
+  if (newPassword !== confirmPassword) {
       alert("New passwords do not match! Please try again.");
       return;
-    }
+  }
 
-    try {
-      const response = await fetch("/api/users/edit-profile", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          phone,
-          currentPassword,
-          newPassword,
-        }),
+  try {
+      const requestBody = {};
+
+      if (email) {
+          requestBody.email = email;
+      }
+
+      if (phone) {
+          requestBody.phone = phone;
+      }
+      if (newPassword) {
+      requestBody.currentPassword = currentPassword;
+      requestBody.newPassword = newPassword;
+      }
+      console.log(requestBody)
+if (email || phone || newPassword) {
+      const response = await fetch("/api/users/", {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
       });
 
       if (response.ok) {
-        alert("Profile updated successfully!");
-        window.location.href = "profile.html"; // Redirect to profile page after update
+          alert("Profile updated successfully!");
+          window.location.replace('/profile');
       } else {
-        const data = await response.json();
-        alert(data.message || "Failed to update profile. Please try again.");
+          const data = await response.json();
+          alert(data.message || "Failed to update profile. Please try again.");
       }
-    } catch (error) {
+    }
+  } catch (error) {
       console.error("Error during profile update:", error);
       alert("An error occurred. Please try again later.");
-    }
-  });
+  }
 });
