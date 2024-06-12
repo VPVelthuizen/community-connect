@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
                 attributes: { include: ['name'] },
             }
         });
-            const event = eventData.get({ plain: true });
+        const event = eventData.get({ plain: true });
         console.log(event);
 
         res.render("event", {
@@ -48,7 +48,5 @@ router.get('/:id', async (req, res) => {
     }
 
 });
-
-// Need to do a router get / and use find all still include company
 
 module.exports = router;
