@@ -1,24 +1,24 @@
 const router =  require('express').Router();
-const withAuth = require('../../utils/withAuth.js');
 const { User, Company } = require('../../models')
 
-router.get('/', withAuth, async (req, res) => { 
+router.get('/:id', async (req, res) => { 
     try {
-        // Not sure about this line I think I'm missing something or have too muc
-        const companyData = await User.findByPk(req.session.user_id, {
-            include: Company,
+        const companyData = await Company.findByPk(req.params.id, {
+            include: {
+                model: User,
+                attributes: ['username', 'is_admin', 'email']
+            }
         });
 
         const company = companyData.get({ plain: true });
-        // Took the format in the profile page and tried to keep it consistent with the profile
-        // Need company handlebars?
+        console.log(company)
         res.render("company", {
             name: company.name,
-            email: company.email,
             cause: company.cause,
             city: company.city,
             state: company.state,
-            company_key: company.company.company_key,
+            users: company.users,
+            description: company.description,
             logged_in: req.session.logged_in,
         });
     } catch (err) {

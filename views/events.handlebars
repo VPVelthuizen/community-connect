@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col s12 m3 l4 side-image-events">
+        <h3 class="white-text">Events</h3>
+    </div>
+    <div class="col s12 m9 l8 main-events-container">
+        {{#if events.length}}
+        <div class="bolder-container">
+            <h1 class="black-text bold">All Events</h1>
+        </div>
+
+        {{else}}
+        <h1 class="bold black-text">No Events Scheduled</h1>
+        {{/if}}
+
+        {{#each events}}
+        <div class="title-container-blue">
+            <div class="bolder-container bolder-container-blue">
+                <h1 class="black-text bold">{{name}}</h1>
+                <span>Hosted in<span class="bold"> {{city}}, {{state}}</span></span><br>
+                <span>by: {{company.name}}</span>
+            </div>
+            <p class="desc">{{description}}</p>
+        </div>
+        {{/each}}
+
+    </div>
+</div>

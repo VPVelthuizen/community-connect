@@ -12,6 +12,10 @@ Event.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     company_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -20,6 +24,10 @@ Event.init(
         key: 'id',
       }
     },
+    // date: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false
+    // },
     city: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -27,7 +35,11 @@ Event.init(
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false, 
+    },
   },
   {
     sequelize,

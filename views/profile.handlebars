@@ -1,92 +1,91 @@
 <div class="row">
-  <div class="col s12 m3 l4 side-image-profile">
-    <h3 class="white-text">Your Profile</h3>
-  </div>
-  <div class="col s12 m9 l8 main-profile-container">
-    <div class="profile-title-container">
-      <div class="title-container">
-        <div class="bolder-container">
-          <h1 class="black-text bold">{{username}}</h1>
-          <span>Employee of <span class="bold">{{company_name}}</span></span>
+    <div class="col s12 m3 l4 side-image-profile">
+        <h3 class="white-text">Your Profile</h3>
+    </div>
+    <div class="col s12 m9 l8 main-profile-container">
+        <div class="profile-title-container">
+            <div class="title-container">
+                <div class="bolder-container">
+                    <h1 class="black-text bold">{{username}}</h1>
+                    {{#if is_admin}}
+                    <span>Admin of <span class="bold">{{company_name}}</span></span>
+                    {{else}}
+                    <span>Employee of <span class="bold">{{company_name}}</span></span>
+                    {{/if}}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="profile-containers">
-      <h6 class="bold profile-title">Email:</h6>
-      <span class="content-box">{{email}}</span>
-    </div>
-    <div class="profile-containers">
-      <h6 class="bold profile-title">Phone Number:</h6>
-      {{#if phone}}
-        <span class="content-box">{{phone}}</span>
-      {{else}}
-        <input type="text" id="phone-number" placeholder="Add Phone Number?" />
-      {{/if}}
-    </div>
-    <div class="profile-containers">
-      <h6 class="bold profile-title">Password:</h6>
-      <span class="content-box">************</span>
-    </div>
-    <div class="button-container">
-      <a
-        class="waves-effect waves-light btn profile-buttons modal-trigger"
-        href="#modal1"
-      >Change Password</a>
-      <a
-        class="waves-effect waves-light btn profile-buttons"
-        id="edit-profile"
-      >Edit Profile</a>
-    </div>
-
-    <div class="profile-title-container">
-      <div class="title-container">
-        <div class="bolder-container">
-          <h1 class="black-text bold">{{company_name}}</h1>
-          <span>Based in
-            <span class="bold">{{company_city}}, {{company_state}}</span></span>
+        <div class="profile-containers">
+            <h6 class="bold profile-title">Email:</h6>
+            <span class="content-box">{{email}}</span>
         </div>
-      </div>
-      <div class="profile-containers">
-        <h6 class="bold profile-title">Cause</h6>
-        <span class="content-box">{{company_cause}}</span>
-      </div>
-      <div class="profile-containers">
-        <h6 class="bold profile-title">Company Key</h6>
-        <span class="content-box">{{company_key}}</span>
-      </div>
-      <div class="button-container">
-        <a
-          class="waves-effect waves-light btn profile-buttons"
-          id="change-role"
-        >Change Role</a>
-        <a
-          class="waves-effect waves-light btn profile-buttons"
-          id="edit-profile"
-        >Leave Company</a>
-      </div>
-    </div>
+        <div class="profile-containers">
+            <h6 class="bold profile-title">Phone Number:</h6>
+            {{#if phone}}
+            <span class="content-box">{{phone}}</span>
+            {{else}}
+            <input type="text" id="phone-number" placeholder="Add Phone Number?" />
+            {{/if}}
+        </div>
+        <div class="profile-containers">
+            <h6 class="bold profile-title">Password:</h6>
+            <span class="content-box">************</span>
+        </div>
+        <div class="button-container">
+            <a class="waves-effect waves-light btn profile-buttons modal-trigger" href="#modal1">Change Password</a>
+            <a class="waves-effect waves-light btn profile-buttons" id="edit-profile">Edit Profile</a>
+        </div>
 
-  </div>
+        <div class="profile-title-container">
+            <div class="title-container">
+                <div class="bolder-container">
+                    <h1 class="black-text bold">{{company_name}}</h1>
+                    <span>Based in
+                        <span class="bold">{{company_city}}, {{company_state}}</span></span>
+                </div>
+            </div>
+            <div class="profile-containers">
+                <h6 class="bold profile-title">Cause</h6>
+                <span class="content-box">{{company_cause}}</span>
+            </div>
+            <div class="profile-containers">
+                <h6 class="bold profile-title">Company Key</h6>
+                <span class="content-box">{{company_key}}</span>
+            </div>
+            <div class="button-container">
+                <a class="waves-effect waves-light btn profile-buttons" id="change-role">Change Role</a>
+                <a class="waves-effect waves-light btn profile-buttons" id="edit-profile">Leave Company</a>
+            </div>
+        </div>
+
+    </div>
 </div>
 <div id="modal1" class="modal">
-  <div class="modal-content">
-    <h4>Change Password</h4>
-    <form id="changePasswordForm">
-        <div class="input-field">
-            <input id="current-password" type="password" required>
-            <label for="current-password">Current Password</label>
-        </div>
-        <div class="input-field">
-            <input id="new-password" type="password" required>
-            <label for="new-password">New Password</label>
-        </div>
-        <div class="input-field">
-            <input id="confirm-password" type="password" required>
-            <label for="confirm-password">Confirm New Password</label>
-        </div>
-  </div>
-  <div class="modal-footer">
-    <button type="submit" class="modal-close waves-effect waves-green btn-flat">Change
-      Password</button>
-  </div>
+    <div class="modal-content">
+        <h4>Change Password</h4>
+        <form id="changePasswordForm">
+            <div class="input-field">
+                <input id="current-password" type="password" required>
+                <label for="current-password">Current Password</label>
+            </div>
+            <div class="input-field">
+                <input id="new-password" type="password" required>
+                <label for="new-password">New Password</label>
+            </div>
+            <div class="input-field">
+                <input id="confirm-password" type="password" required>
+                <label for="confirm-password">Confirm New Password</label>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="modal-close waves-effect waves-green btn-flat">Change
+            Password</button>
+    </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+</script>
