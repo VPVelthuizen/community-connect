@@ -10,8 +10,11 @@ const User = require('./User.js');
 
 Company.hasMany(User, {
     foreignKey: 'company_id',
-    onDelete: 'CASCADE'
 });
+
+Company.hasMany(Event, {
+    foreignKey: 'company_id',
+})
 
 User.belongsTo(Company, {
     foreignKey: 'company_id'
@@ -48,7 +51,6 @@ Comment.belongsTo(Post, {
 
 Comment.hasOne(User, {
     foreignKey: 'user_id',
-    // onDelete: 'CASCADE'
 })
 
 
