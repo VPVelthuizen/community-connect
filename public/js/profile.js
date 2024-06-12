@@ -15,7 +15,7 @@ $(document).ready(function () {
     }
 
     try {
-      const response = await fetch("/change-password", {
+      const response = await fetch("/api/users/change-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,5 +36,10 @@ $(document).ready(function () {
       console.error("Error during password change:", error);
       alert("An error occurred. Please try again later.");
     }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".modal");
+    var instances = M.Modal.init(elems);
   });
 });
