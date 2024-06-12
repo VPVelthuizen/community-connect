@@ -1,39 +1,29 @@
 $(document).ready(function () {
   $(".sidenav").sidenav();
-  $(".modal").modal();
 
-  $("#changePasswordForm").on("submit", async function (event) {
-    event.preventDefault();
-
-    const currentPassword = $("#current-password").val().trim();
-    const newPassword = $("#new-password").val().trim();
-    const confirmPassword = $("#confirm-password").val().trim();
-
-    if (newPassword !== confirmPassword) {
-      alert("New passwords do not match! Please try again.");
+  $("#leave-company").on("click", async function () {
+    const confirmation = confirm("Are you sure you want to leave the company?");
+    if (!confirmation) {
       return;
     }
 
     try {
-      const response = await fetch("/change-password", {
+      const response = await fetch("/api/users/TODO", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          currentPassword,
-          newPassword,
-        }),
       });
 
       if (response.ok) {
-        alert("Password changed successfully!");
+        alert("You have successfully left the company.");
+        window.location.href = "login.html"; // Redirect to login page or another relevant page after leaving the company
       } else {
         const data = await response.json();
-        alert(data.message || "Failed to change password. Please try again.");
+        alert(data.message || "Failed to leave the company. Please try again.");
       }
     } catch (error) {
-      console.error("Error during password change:", error);
+      console.error("Error during company leave:", error);
       alert("An error occurred. Please try again later.");
     }
   });
