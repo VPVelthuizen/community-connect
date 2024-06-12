@@ -24,10 +24,10 @@ Event.init(
         key: 'id',
       }
     },
-    // date: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     city: {
         type: DataTypes.STRING,
         allowNull: false,
