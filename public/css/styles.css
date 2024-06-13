@@ -485,6 +485,27 @@ h4 {
   background-color: red;
 }
 
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+
+/* COMPANY PAGE */
+.username-company {
+    border-bottom: 1px solid var(--purple);
+    font-size: 20px;
+}
+
+.email-company {
+    color: #0097b2;
+}
+
+.role-company {
+    display: block;
+}
+
 @media only screen and (min-width: 601px) {
   h3 {
     text-align: left;

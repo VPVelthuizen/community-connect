@@ -1,13 +1,17 @@
-const router =  require('express').Router();
-const { User, Company } = require('../../models')
+const router = require('express').Router();
+const { User, Company, Event } = require('../../models')
 
-router.get('/:id', async (req, res) => { 
+router.get('/:id', async (req, res) => {
     try {
         const companyData = await Company.findByPk(req.params.id, {
-            include: {
+            include: [{
                 model: User,
                 attributes: ['username', 'is_admin', 'email']
-            }
+            },
+            {
+                model: Event,
+                attributes: ['name', 'city', 'state']
+            }]
         });
 
         const company = companyData.get({ plain: true });
@@ -18,13 +22,14 @@ router.get('/:id', async (req, res) => {
             city: company.city,
             state: company.state,
             users: company.users,
+            events: company.events,
             description: company.description,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
         res.status(500).json(err);
     }
-    
+
 });
 
 module.exports = router;
