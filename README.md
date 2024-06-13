@@ -1,6 +1,6 @@
 # CommUnity Connect
 
-![community connect logo](./public/images/README/Logo%20with%20White.png)
+![community connect logo](./public/images/README/CC%20Logo%20White.png)
 
 ## Project Description
 
