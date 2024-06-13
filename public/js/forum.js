@@ -1,6 +1,6 @@
 // Function to add post
 async function addPost(event) {
-  event.preventDefault();  
+  event.preventDefault();
   const postTitle = document.getElementById("post-title").value.trim();
   const postBody = document.getElementById("post-body").value.trim();
 
@@ -17,14 +17,14 @@ async function addPost(event) {
   try {
     // Send a POST request to the server with the post data
     const response = await fetch("/api/posts/", {
-        method: "POST",
-        body: JSON.stringify({
-            title,
-            body,
-            forum_id,
-            user_id: rec.sesion.user_id
-        }),
-        headers: { "Content-Type:": "application/json" },
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        body,
+        forum_id,
+        user_id: rec.sesion.user_id,
+      }),
+      headers: { "Content-Type:": "application/json" },
     });
 
     // Log the response for debugging purposes
@@ -32,24 +32,23 @@ async function addPost(event) {
 
     // Check if the response is ok
     if (response.ok) {
-        const data = await response.json();
-        if (data) {
-          // If the response indicates success, redirect to the posts page
-          document.location.replace("/posts");
-        } else {
-          alert(data.message || "Failed to create post. Please try again!"); // Error message
-        }
+      const data = await response.json();
+      if (data) {
+        // If the response indicates success, redirect to the posts page
+        document.location.replace("/posts");
       } else {
-        const data = await response.json();
         alert(data.message || "Failed to create post. Please try again!"); // Error message
       }
-    } catch (error) {
-      alert("An error occurred during post creation. Please try again!"); // General error alert
+    } else {
+      const data = await response.json();
+      alert(data.message || "Failed to create post. Please try again!"); // Error message
     }
-    else {
-    alert("Please fill in all fields before submitting."); // Alert if not all fields are filled
+  } catch (error) {
+    console.error("Error during post creation:", error);
+    alert("An error occurred during post creation. Please try again!"); // General error alert
   }
 }
+
 // Add event listener to the form
 const addPostForm = document.querySelector("#addPostForm");
 addPostForm.addEventListener("submit", addPost);
