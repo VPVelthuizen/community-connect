@@ -20,14 +20,19 @@ const loginFormHandler = async (event) => {
 
       // Check if the response is OK
       if (response.ok) {
-        document.location.replace("/"); 
+        const data = response.json()
+        console.log(data)
+        if (data) {
+          alert("Succesfully Logged In!");
+          document.location.replace("/");
+        }
       } else {
         alert("Incorrect username or password. Please try again!"); // Show an error alert if login failed
       }
     } catch (error) {
       alert("An error occurred.  Please try again later!")
     }
-};
+  };
 }
 
 // Select the login form and add a submit event listener
