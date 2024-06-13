@@ -28,6 +28,10 @@ Event.init(
       type: DataTypes.DATE,
       allowNull: false
     },
+    time: {
+      type: DataTypes.TIME,
+      allowNull: false, 
+    },
     city: {
         type: DataTypes.STRING,
         allowNull: false,

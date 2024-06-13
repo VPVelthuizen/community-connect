@@ -5,11 +5,7 @@ const { Event, Company, User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         // Retrieve the user ID from the session
-        const userId = 1;
-
-        // Find the user's company ID
-        const user = await User.findByPk(userId);
-        const companyId = user.company_id;
+        const companyId = req.session.company_id;
 
         // Assign the company ID to the event before creating it
         const eventData = { ...req.body, company_id: companyId };
