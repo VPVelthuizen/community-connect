@@ -4,6 +4,7 @@ const Event = require('./Event.js');
 const Forum = require('./Forum.js');
 const Post = require('./Post.js');
 const User = require('./User.js');
+const UserEvent = require('./UserEvent.js')
 
 Company.hasMany(User, {
     foreignKey: 'company_id',
@@ -40,6 +41,10 @@ Comment.hasOne(User, {
     foreignKey: 'user_id',
 })
 
+User.belongsToMany(Event, { through: 'user_event', foreignKey: 'user_id' });
+
+Event.belongsToMany(User, { through: 'user_event', foreignKey: 'event_id' });
+
 
 module.exports = {
     Comment,
@@ -48,4 +53,5 @@ module.exports = {
     Forum,
     Post,
     User,
+    UserEvent,
 };
