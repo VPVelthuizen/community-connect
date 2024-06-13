@@ -3,9 +3,6 @@ const Company = require('./Company.js');
 const Event = require('./Event.js');
 const Forum = require('./Forum.js');
 const Post = require('./Post.js');
-const Tag = require('./Tag.js');
-const CompanyTag = require('./CompanyTag.js')
-const EventTag = require('./EventTag.js')
 const User = require('./User.js');
 
 Company.hasMany(User, {
@@ -18,16 +15,6 @@ Company.hasMany(Event, {
 
 User.belongsTo(Company, {
     foreignKey: 'company_id'
-})
-
-Tag.belongsToMany(Company, {
-    through: 'CompanyTag',
-    foreignKey: 'company_id'
-});
-
-Tag.belongsToMany(Event, {
-    through: 'EventTag',
-    foreignKey: 'event_id'
 })
 
 Event.belongsTo(Company, {
@@ -60,8 +47,5 @@ module.exports = {
     Event,
     Forum,
     Post,
-    Tag,
     User,
-    CompanyTag,
-    EventTag,
 };
