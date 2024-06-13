@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Company, Event } = require('../../models')
+const { Company, Event, User } = require('../../models')
 const withAuth = require('../../utils/withAuth')
 
 const { formatTime } = require('../../utils/formatTime');
@@ -39,26 +39,41 @@ router.get('/add', withAuth, async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const eventData = await Event.findByPk(req.params.id, {
-            include: {
-                model: Company,
-                attributes: { include: ['name'] },
-            }
+            include: [
+                {
+                    model: Company,
+                    include: User // Assuming User is the model for users associated with the company
+                },
+                {
+                    model: User,
+                    through: { attributes: [] }
+                }
+            ]
         });
+
         const event = eventData.get({ plain: true });
-        console.log(event);
+        console.log(event)
+
+        // Format time and end_time
+        const formattedTime = formatTime(event.time); // Function to format time
+        const formattedEndTime = formatTime(event.end_time); // Function to format end_time
 
         res.render("event", {
+            id: event.id,
             name: event.name,
             city: event.city,
             state: event.state,
             description: event.description,
             company: event.company,
+            company_users: event.company.users, 
+            attending_users: event.users,
+            time: formattedTime,
+            end_time: formattedEndTime,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
         res.status(500).json(err);
     }
-
 });
 
 module.exports = router;

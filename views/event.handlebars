@@ -1,0 +1,59 @@
+<div class="title-container">
+    <div class="bolder-container">
+        <h1 class="black-text bold event-title">{{name}}</h1>
+    </div>
+</div>
+
+<div class="event-container row">
+    <div class="more-info col s12">
+        <span class="event-details">{{city}}, {{state}}</span>
+        <span class="event-details">From {{time}} to {{end_time}}</span>
+        <h3>{{description}}</h4>
+    </div>
+    <div class="col s12 l6 company">
+        <div class="bolder-container">
+            <h1 class="black-text">Ran By <span class="bold">{{company.name}}</span></h1>
+        </div>
+        <span>Based in {{company.city}}, {{company.state}}</span>
+        <h6 class="bold">Our Cause:</h6>
+        <span class="content-box">{{company.cause}}</span>
+        <div class="bolder-container">
+            <h5 class="black-text bold">Admins</h5>
+        </div>
+        {{#each company_users}}
+        {{#if is_admin}}
+        <div class="profile-containers">
+            <div class="profile-containers">
+                <span class="content-box">{{username}}</span>
+                <span class="content-box">{{email}}</span>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <div class="attending col s12 l6">
+        <div class="title-container">
+            <div class="bolder-container">
+                <h1 class="black-text bold">Attending:</h1>
+            </div>
+       
+        <a data-id='{{id}}' class="waves-effect waves-light btn profile-buttons" id="attend-event">Attend This
+            Event?</a> 
+            </div>
+            <div class="team">
+            {{#each attending_users}}
+            <div class="user-container">
+                <h5 class="username-company">{{username}}</h4>
+                    <span class="email-company">{{email}}</span>
+                    {{#if is_admin}}
+                    <span class="role-company">Admin</span>
+                    {{else}}
+                    <span class="role-company">Employee</span>
+                    {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script src="../public/js/attendEvent.js"></script>

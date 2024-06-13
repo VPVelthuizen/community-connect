@@ -32,6 +32,10 @@ Event.init(
       type: DataTypes.TIME,
       allowNull: false, 
     },
+    end_time: {
+      type: DataTypes.TIME,
+      allowNull: false
+    },
     city: {
         type: DataTypes.STRING,
         allowNull: false,

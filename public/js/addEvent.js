@@ -3,12 +3,13 @@ const eventFormHandler = async (event) => {
     const name = document.querySelector("#event-name").value.trim();
     const date = document.querySelector("#event-date").value.trim();
     const time = document.querySelector("#event-time").value.trim();
+    const end_time = document.querySelector("#event-end-time").value.trim();
     const city = document.querySelector("#event-city").value.trim();
     const state = document.querySelector("#event-state").value.trim();
     const desc = document.querySelector("#event-desc").value.trim();
   
     // Check if all fields are provided
-    if (name && date && time && city && state && desc) {
+    if (name && date && time && end_time && city && state && desc) {
       try {
         // Send a POST request to the server with the signup data
         const response = await fetch("/api/events/", {
@@ -17,6 +18,7 @@ const eventFormHandler = async (event) => {
             name,
             date,
             time, 
+            end_time,
             city,
             state,
             description: desc,
