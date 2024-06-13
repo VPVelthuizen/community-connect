@@ -16,7 +16,7 @@
         {{#if is_admin}}
         <span class="content-box">{{company_key}}</span>
         {{else}}
-         <span class="content-box">Contact Your Company Admin</span>
+        <span class="content-box">Contact Your Company Admin</span>
         {{/if}}
         {{/if}}
         <div class="bolder-container">
@@ -61,11 +61,13 @@
                     <div class="bolder-container bolder-container-blue">
                         <h1 class="black-text bold">{{name}}</h1>
                         <span>Hosted in<span class="bold"> {{city}}, {{state}}</span></span><br>
+                        <span>{{date}} at {{time}}</span><br>
                     </div>
                 </div>
                 {{/each}}
                 {{#if hasCompany}}
-                <a href="/events/add"class="waves-effect waves-light btn profile-buttons" id="add-event">Add Event <i class="material-icons">add_circle</i></a>
+                <a href="/events/add" class="waves-effect waves-light btn profile-buttons" id="add-event">Add Event <i
+                        class="material-icons">add_circle</i></a>
                 {{/if}}
             </div>
         </div>
