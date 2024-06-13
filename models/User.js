@@ -31,7 +31,7 @@ User.init(
     },
     company_key: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     company_id: {
         type: DataTypes.INTEGER,
