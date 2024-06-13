@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { User, Company, Event } = require('../../models')
+const { format_date } = require('../../utils/dateUtils') 
+const { formatTime } = require('../../utils/formatTime')
 
 router.get('/:id', async (req, res) => {
     try {
@@ -10,7 +12,7 @@ router.get('/:id', async (req, res) => {
             },
             {
                 model: Event,
-                attributes: ['name', 'city', 'state']
+                attributes: ['name', 'city', 'state', 'time', 'date']
             }]
         });
 
@@ -19,6 +21,15 @@ router.get('/:id', async (req, res) => {
         // Check if the current user has the company ID in their model
         const hasCompany = req.session.company_id && company.users.some(user => user.company_id === req.session.company_id);
 
+        // Format the event date and time
+        const formattedEvents = company.events.map(event => {
+            return {
+                ...event,
+                date: format_date(event.date),
+                time: formatTime(event.time)
+            };
+        });
+
         res.render("company", {
             id: company.id,
             name: company.name,
@@ -26,7 +37,7 @@ router.get('/:id', async (req, res) => {
             city: company.city,
             state: company.state,
             users: company.users,
-            events: company.events,
+            events: formattedEvents,
             company_key: company.company_key,
             description: company.description,
             logged_in: req.session.logged_in,

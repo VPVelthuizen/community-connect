@@ -3,6 +3,7 @@ const { Company, Event } = require('../../models')
 const withAuth = require('../../utils/withAuth')
 
 const { formatTime } = require('../../utils/formatTime');
+const { format_date } = require('../../utils/dateUtils')
 
 router.get('/', async (req, res) => {
     try {
@@ -15,6 +16,8 @@ router.get('/', async (req, res) => {
             const formattedEvent = event.get({ plain: true });
             // Format the time of each event
             formattedEvent.time = formatTime(formattedEvent.time);
+            // Format the date of each event
+            formattedEvent.date = format_date(formattedEvent.date);
             return formattedEvent;
         });
 

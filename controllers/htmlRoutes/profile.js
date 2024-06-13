@@ -15,6 +15,7 @@ router.get('/', withAuth, async (req, res) => {
             email: profile.email,
             phone: profile.phone,
             is_admin: profile.is_admin,
+            company_id: profile.company_id,
             company_name: profile.company.name,
             company_city: profile.company.city,
             company_state: profile.company.state,

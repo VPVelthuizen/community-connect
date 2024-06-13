@@ -433,6 +433,15 @@ h4 {
   background: url("../images/events/eventsSideImage.png");
 }
 
+.event-link-name,
+.company-link-name {
+  color: black;
+}
+.event-link-name:hover,
+.company-link-name:hover {
+  color: var(--orange);
+}
+
 .side-image-events,
 .side-image-members,
 .side-image-profile {
