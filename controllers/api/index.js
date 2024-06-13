@@ -9,11 +9,11 @@ const companyRoutes = require('./companyRoutes')
 const commentRoutes = require('./commentRoutes')
 
 router.use('/users', userRoutes);
-// router.use('/tags', tagRoutes);
-// router.use('/posts', postRoutes);
-// router.use('/forums', forumRoutes);
+router.use('/tags', tagRoutes);
+router.use('/posts', postRoutes);
+router.use('/forums', forumRoutes);
 router.use('/events', eventRoutes);
 router.use('/companies', companyRoutes);
-// router.use('/comments', commentRoutes);
+router.use('/comments', commentRoutes);
 
 module.exports = router;
