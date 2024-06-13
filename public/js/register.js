@@ -6,17 +6,15 @@ const registerFormHandler = async (event) => {
   const state = document.querySelector("#primary-state").value.trim();
 
   // Check if all fields are provided
-  if (
-    name && cause && city && state
-  ) {
+  if (name && cause && city && state) {
     try {
       // Send a POST request to the server with the signup data
       const response = await fetch("/api/companies/", {
         method: "POST",
         body: JSON.stringify({
-          name, 
-          cause, 
-          city, 
+          name,
+          cause,
+          city,
           state
         }),
         headers: { "Content-Type": "application/json" },
@@ -27,14 +25,22 @@ const registerFormHandler = async (event) => {
 
       // Check if the response is ok
       if (response.ok) {
-        document.location.replace("/admin");
+        const data = await response.json();
+        if (data) {
+          // If the response indicates success, redirect to the admin page
+          document.location.replace("/admin");
+        } else {
+          alert(data.message || "Failed to sign up. Please try again!"); // Error message
+        }
       } else {
         const data = await response.json();
-        alert(data.message || "Failed to sign up.  Please try again!"); //error message
+        alert(data.message || "Failed to sign up. Please try again!"); // Error message
       }
     } catch (error) {
-      alert("An error occurred during signup.  Please try again!"); // General error alert
+      alert("An error occurred during signup. Please try again!"); // General error alert
     }
+  } else {
+    alert("Please fill in all fields before submitting."); // Alert if not all fields are filled
   }
 };
 

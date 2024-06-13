@@ -20,7 +20,7 @@ document
         alert(
           "You have successfully deleted your profile.  We hope you'll join us again soon!"
         );
-        window.location.href = "login.html"; // Redirect to login page or another relevant page after leaving the company
+        document.location.replace("/login");
       } else {
         const data = await response.json();
         alert(data.message || "Failed to delete. Please try again!");

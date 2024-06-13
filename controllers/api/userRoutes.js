@@ -7,7 +7,11 @@ router.post('/', async (req, res) => {
 
         req.session.save(() => {
             req.session.user_id = userData.id;
+            req.session.company_id = userData.company_id;
+            req.session.is_admin = userData.is_admin;
             req.session.logged_in = true;
+
+            console.log(req.session)
 
             res.status(200).json(userData);
         });
@@ -34,7 +38,11 @@ router.post('/login', async (req, res) => {
         }
         req.session.save(() => {
             req.session.user_id = userData.id;
+            req.session.company_id = userData.company_id;
+            req.session.is_admin = userData.is_admin;
             req.session.logged_in = true;
+
+            console.log(req.session)
 
             res.json({ user: userData, message: 'Log in successful!' });
         });
@@ -56,37 +64,31 @@ router.post('/logout', (req, res) => {
 
 router.put('/', async (req, res) => {
     try {
-        const userData = await User.findByPk(req.session.user_id);
-
-        if (!userData) {
-            res.status(404).json({ message: 'User not found' });
-            return;
-        }
-
-        // Check if new email is provided in the request
+        // Prepare the data to be updated based on the request body
+        const dataToUpdate = {};
         if (req.body.email) {
-            userData.email = req.body.email;
+            dataToUpdate.email = req.body.email;
         }
-
-        // Check if new password is provided in the request
         if (req.body.newPassword) {
-            userData.password = req.body.newPassword;
+            dataToUpdate.password = req.body.newPassword;
         }
-
-        // Check if new cellphone number is provided in the request
         if (req.body.phone) {
-            userData.phone = req.body.phone;
+            dataToUpdate.phone = req.body.phone;
         }
 
+        // Update the user data in the database based on the user_id in the session
+        await User.update(dataToUpdate, {
+            where: {
+                id: req.session.user_id
+            }
+        });
 
-        console.log(userData)
+        // Fetch the updated user data from the database
+        const updatedUserData = await User.findByPk(req.session.user_id);
 
-        // Save the updated user data
-        await userData.save();
-
-        res.status(200).json(userData);
+        return res.status(200).json(updatedUserData);
     } catch (err) {
-        res.status(400).json(err);
+        return res.status(400).json(err);
     }
 });
 

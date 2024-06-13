@@ -8,8 +8,9 @@ const logoutHandler = async () => {
 
     // Check if the response is OK
     if (response.ok) {
-      // Redirect the user to the login page or homepage
-      document.location.replace("/login");
+        // Redirect the user to the login page or homepage
+        alert("Logout Successful, Returning to Homepage!");
+        document.location.replace("/");
     } else {
       alert("Failed to log out. Please try again!");
     }

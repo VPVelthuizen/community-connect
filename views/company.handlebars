@@ -11,6 +11,14 @@
         <span>Based in {{city}}, {{state}}</span>
         <h6 class="bold">Our Cause:</h6>
         <span class="content-box">{{cause}}</span>
+        {{#if hasCompany}}
+        <h6 class="bold">Company Key:</h6>
+        {{#if is_admin}}
+        <span class="content-box">{{company_key}}</span>
+        {{else}}
+         <span class="content-box">Contact Your Company Admin</span>
+        {{/if}}
+        {{/if}}
         <div class="bolder-container">
             <h5 class="black-text bold">Admins</h5>
         </div>
@@ -18,44 +26,47 @@
         {{#if is_admin}}
         <div class="profile-containers">
             <div class="profile-containers">
-            <span class="content-box">{{username}}</span>
-            <span class="content-box">{{email}}</span>
+                <span class="content-box">{{username}}</span>
+                <span class="content-box">{{email}}</span>
+            </div>
+            {{/if}}
+            {{/each}}
         </div>
-        {{/if}}
-        {{/each}}
-    </div>
 
-    <div class="our-team col s12 m6">
-        <div class="underlined-container-blue">
-            <h1 class="black-text">Our Team</h1>
-        </div>
-        <div class="team">
-            {{#each users}}
-            <div class="user-container">
-                <h5 class="username-company">{{username}}</h4>
-                    <span class="email-company">{{email}}</span>
-                    {{#if is_admin}}
-                    <span class="role-company">Admin</span>
-                    {{else}}
-                    <span class="role-company">Employee</span>
-                    {{/if}}
+        <div class="our-team col s12 m6">
+            <div class="underlined-container-blue">
+                <h1 class="black-text">Our Team</h1>
             </div>
-            {{/each}}
-        </div>
-    </div>
-    <div class="our-events col s12 m6">
-        <div class="underlined-container-orange">
-            <h1 class="black-text">Our Events</h1>
-        </div>
-        <div class="events">
-            {{#each events}}
-            <div class="title-container-blue">
-                <div class="bolder-container bolder-container-blue">
-                    <h1 class="black-text bold">{{name}}</h1>
-                    <span>Hosted in<span class="bold"> {{city}}, {{state}}</span></span><br>
+            <div class="team">
+                {{#each users}}
+                <div class="user-container">
+                    <h5 class="username-company">{{username}}</h4>
+                        <span class="email-company">{{email}}</span>
+                        {{#if is_admin}}
+                        <span class="role-company">Admin</span>
+                        {{else}}
+                        <span class="role-company">Employee</span>
+                        {{/if}}
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
+        </div>
+        <div class="our-events col s12 m6">
+            <div class="underlined-container-orange">
+                <h1 class="black-text">Our Events</h1>
+            </div>
+            <div class="events">
+                {{#each events}}
+                <div class="title-container-blue">
+                    <div class="bolder-container bolder-container-blue">
+                        <h1 class="black-text bold">{{name}}</h1>
+                        <span>Hosted in<span class="bold"> {{city}}, {{state}}</span></span><br>
+                    </div>
+                </div>
+                {{/each}}
+                {{#if hasCompany}}
+                <a class="waves-effect waves-light btn profile-buttons" id="add-event">Add Event <i class="material-icons">add_circle</i></a>
+                {{/if}}
+            </div>
         </div>
     </div>
-</div>
