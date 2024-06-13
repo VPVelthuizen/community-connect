@@ -4,7 +4,7 @@
 
 ## Project Description
 
-**CommUnity Connect** is a full-service platform designed to foster collaboration and sharing among non-profit organizations. Our mission is to empower non-profits by providing a centralized hub where organizations can exchange information, share tips for success, promote fundraising events, and engage in meaningful discussions. At CommUnity Connect, we believe in the power of community. By bringing together non-profits from various sectors, we aim to create a supportive network that drives positive change. Join us today and be a part of a community dedicated to making a difference!
+**[CommUnity Connect](link)** is a full-service platform designed to foster collaboration and sharing among non-profit organizations. Our mission is to empower non-profits by providing a centralized hub where organizations can exchange information, share tips for success, promote fundraising events, and engage in meaningful discussions. At CommUnity Connect, we believe in the power of community. By bringing together non-profits from various sectors, we aim to create a supportive network that drives positive change. Join us today and be a part of a community dedicated to making a difference!
 
 ## Features
 
@@ -30,12 +30,22 @@
 
 This website does not require installation! Sit back, relax, and connect with the community!
 
+## Technologies Used
+
+![Node.js](https://img.shields.io/badge/Node.js-green)<br>
+![Express.js](https://img.shields.io/badge/Express.js-blue)<br>
+![Handlebars](https://img.shields.io/badge/Handlebars-orange)<br>
+![Bcrypt](https://img.shields.io/badge/Bcrypt-4B31F6)<br>
+![dotenv](https://img.shields.io/badge/dotenv-80FF00)<br>
+![postgreSQL](https://img.shields.io/badge/postgreSQL-grey)<br>
+![Sequelize](https://img.shields.io/badge/Sequelize-3399FF)
+
 ## Credits
 
-Donna Burns, [Github](https://github.com/donnacancode)  
-Steph Dilolle, [Github](https://github.com/stephdilolle)  
-Noah Manno, [Github](https://github.com/Noah-Manno)  
-Vincent Velthuizen, [Github](https://github.com/VPVelthuizen)
+Donna Burns: [Github](https://github.com/donnacancode)  
+Steph Dilolle: [Github](https://github.com/stephdilolle)  
+Noah Manno: [Github](https://github.com/Noah-Manno)  
+Vincent Velthuizen: [Github](https://github.com/VPVelthuizen)
 
 ## License
 
