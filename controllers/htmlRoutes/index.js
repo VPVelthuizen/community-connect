@@ -8,7 +8,7 @@ const register = require('./register.js');
 const signup = require('./signup.js');
 const admin = require('./admin.js')
 const directory = require('./directory.js');
-// const company = require('./company.js');
+const company = require('./company.js');
 const profile = require('./profile.js');
 const edit = require('./edit.js')
 
@@ -21,5 +21,6 @@ router.use('/directory', directory);
 router.use('/admin', admin);
 router.use('/events', events);
 router.use('/edit', edit);
+router.use('/company', company);
 
 module.exports = router;
