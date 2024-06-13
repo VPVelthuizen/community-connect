@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const { Company, Event } = require('../../models')
+const withAuth = require('../../utils/withAuth')
 
-router.get('/', async (req, res) => { 
+const { formatTime } = require('../../utils/formatTime');
+
+router.get('/', async (req, res) => {
     try {
         const eventData = await Event.findAll({
             include: {
@@ -10,18 +13,24 @@ router.get('/', async (req, res) => {
         });
         const events = eventData.map((event) => {
             const formattedEvent = event.get({ plain: true });
-            return formattedEvent
+            // Format the time of each event
+            formattedEvent.time = formatTime(formattedEvent.time);
+            return formattedEvent;
         });
-        console.log(events)
-        
+
         res.render("events", {
             events,
             logged_in: req.session.logged_in,
         });
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
+});
 
+router.get('/add', withAuth, async (req, res) => {
+    res.render("add-event", {
+        logged_in: req.session.logged_in,
+    });
 });
 
 router.get('/:id', async (req, res) => {
