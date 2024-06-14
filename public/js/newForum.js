@@ -1,16 +1,17 @@
 const createForum = async (event) => {
     event.preventDefault();
     const forumTitle = document.querySelector("#forum-title").value.trim();
-    const forumDescription = document.querySelector("#forum-description").value.trim();
+    const forumDescription = document.querySelector("#forum-description").value;
 
     // Check if all fields are provided
     if (forumTitle && forumDescription) {
       try {
         // Send a POST request to the server with the data
-        const response = await fetch("/api/forum/", {
+        const response = await fetch("/api/forums/", {
           method: "POST",
           body: JSON.stringify({
-            forumTitle,
+            title: forumTitle,
+            description: forumDescription
           }),
           headers: { "Content-Type": "application/json" },
         });
@@ -23,7 +24,7 @@ const createForum = async (event) => {
           const data = await response.json();
           if (data) {
             // If the response indicates success, redirect to the admin page
-            document.location.replace("/forum");
+            document.location.replace("/forums");
           } else {
             alert(data.message || "Failed to create forum. Please try again!"); // Error message
           }
@@ -39,6 +40,6 @@ const createForum = async (event) => {
     }
   };
 
-  const newForum = document.querySelector("#newForum");
+  const newForum = document.querySelector("#newForumForm");
   newForum.addEventListener("submit", createForum);
   

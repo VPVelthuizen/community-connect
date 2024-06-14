@@ -23,8 +23,12 @@ Event.belongsTo(Company, {
     onDelete: 'CASCADE'
 })
 
-Forum.hasMany(User, {
+Forum.belongsTo(User, {
     foreignKey: 'user_id'
+})
+
+User.hasMany(Forum, {
+    foreignKey: 'user_id',
 })
 
 Post.belongsTo(Forum, {
@@ -32,12 +36,16 @@ Post.belongsTo(Forum, {
     onDelete: 'CASCADE'
 })
 
+Forum.hasMany(Post, {
+    foreignKey: 'forum_id',
+})
+
 Comment.belongsTo(Post, {
     foreignKey: 'post_id',
     onDelete: 'CASCADE'
 })
 
-Comment.hasOne(User, {
+Comment.belongsTo(User, {
     foreignKey: 'user_id',
 })
 
