@@ -28,6 +28,14 @@ Post.init(
         key: 'id',
       }
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      }
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,

@@ -1,41 +1,41 @@
 // Function to add post
 async function addPost(event) {
   event.preventDefault();
-  const postTitle = document.getElementById("post-title").value.trim();
-  const postBody = document.getElementById("post-body").value.trim();
+  const title = document.getElementById("post-title").value.trim();
+  const body = document.getElementById("post-body").value.trim();
 
-  if (postBody === "") {
+  if (!body) {
     alert("Post can't be empty!");
     return;
   }
 
-  if (postTitle === "") {
+  if (!title) {
     alert("Give your post a title!");
     return;
   }
 
   try {
+
+    const addPostForm = document.querySelector("#addPostForm");
+    const forumId = addPostForm.dataset.forumId;
     // Send a POST request to the server with the post data
     const response = await fetch("/api/posts/", {
       method: "POST",
       body: JSON.stringify({
         title,
         body,
-        forum_id,
-        user_id: rec.sesion.user_id,
+        forum_id: forumId,
       }),
-      headers: { "Content-Type:": "application/json" },
+      headers: { "Content-Type": "application/json" },
     });
 
     // Log the response for debugging purposes
     console.log(response);
 
-    // Check if the response is ok
     if (response.ok) {
       const data = await response.json();
       if (data) {
-        // If the response indicates success, redirect to the posts page
-        document.location.replace("/posts");
+        document.location.replace(`/forums/${data.forum_id}`);
       } else {
         alert(data.message || "Failed to create post. Please try again!"); // Error message
       }

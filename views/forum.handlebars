@@ -1,15 +1,23 @@
+<div class="row">
+    <div class="col s12 m3 l4 side-image-events">
+        <h3 class="white-text">Forums</h3>
+    </div>
     <div class="col s12 m9 l8 main-events-container">
-            <div class="bolder-container">
+        <div class="bolder-container">
             <h1 class="black-text bold">{{title}}</h1>
             <p class="desc">{{description}}</p>
+            {{#if logged_in}}
+            <a href="/addpost/{{id}}" class="waves-effect waves-light btn profile-buttons" id="add-event">Create Post<i
+                    class="material-icons">add_circle</i></a>
+            {{/if}}
         </div>
-    
+
         {{#if posts.length}}
-    {{#each posts}}
+        {{#each posts}}
         <div class="title-container-blue">
             <div class="bolder-container bolder-container-blue">
-                <h1 class="black-text bold"><a class="forum"href="/posts/{{id}}">{{title}}</a></h1>
-                <span>{{body}}</span><br>
+                <h1 class="black-text bold"><a class="forum" href="/posts/{{id}}">{{title}}</a></h1>
+                <span class="black-text">{{body}}</span><br>
             </div>
         </div>
         {{/each}}
