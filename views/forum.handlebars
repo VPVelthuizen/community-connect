@@ -1,0 +1,21 @@
+    <div class="col s12 m9 l8 main-events-container">
+            <div class="bolder-container">
+            <h1 class="black-text bold">{{title}}</h1>
+            <p class="desc">{{description}}</p>
+        </div>
+    
+        {{#if posts.length}}
+    {{#each posts}}
+        <div class="title-container-blue">
+            <div class="bolder-container bolder-container-blue">
+                <h1 class="black-text bold"><a class="forum"href="/posts/{{id}}">{{title}}</a></h1>
+                <span>{{body}}</span><br>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h1 class="bold black-text">No Posts Found</h1>
+        {{/if}}
+
+    </div>
+</div>

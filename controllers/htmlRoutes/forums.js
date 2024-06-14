@@ -54,21 +54,40 @@ router.get('/addpost', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const forumData = await Forum.findByPk(req.params.id);
-        const forum = forumData.map((forum) => {
-            const formattedForum = forum.get({ plain: true });
-            return formattedForum
+        const forum = await Forum.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Post,
+                },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
-        console.log(forum)
 
+        // Accessing all data for each post within the forum
+        // const formattedForum = {
+        
+        // };
+        
         res.render("forum", {
-            forum,
+            id: forum.id,
+            title: forum.title,
+            description: forum.description,
+            createdBy: forum.user.username,
+            posts: forum.posts.map(post => ({
+                id: post.id,
+                title: post.title,
+                content: post.content,
+                // Add more post data as needed
+            })),
             logged_in: req.session.logged_in,
         });
+
     } catch (err) {
         res.status(500).json(err);
     }
-
 });
 
 module.exports = router;
