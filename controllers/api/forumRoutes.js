@@ -5,14 +5,10 @@ const { Forum, User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         // Retrieve the user ID from the session
-        const userId = 1;
-
-        // Find the user's company ID
-        const user = await User.findByPk(userId);
-        const companyId = user.company_id;
+        const userId = req.session.user_id;
 
         // Assign the company ID to the event before creating it
-        const forumData = { ...req.body, company_id: companyId };
+        const forumData = { ...req.body, user_id: userId};
         const newEvent = await Forum.create(forumData);
 
         res.json(newEvent);

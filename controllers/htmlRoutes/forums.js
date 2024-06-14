@@ -1,26 +1,36 @@
-const router =  require('express').Router();
-const { Forum, User } = require('../../models')
+const router = require('express').Router();
+const { Forum, User, Post } = require('../../models')
 const withAuth = require('../../utils/withAuth')
 const withAdmin = require('../../utils/withAdmin')
 
-router.get('/', async (req, res) => { 
+router.get('/', async (req, res) => {
     try {
         const forumData = await Forum.findAll({
-            include: {
-                model: User,
-                attributes: ['username'], // Include only the username of the user
-            }
+            include: [
+                {
+                    model: Post,
+                },
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
 
         const forums = forumData.map((forum) => {
-            const formattedForum = forum.get({ plain: true });
-            formattedForum.user = forum.User; // Access the associated User model and assign it to the forum object
+            // Format the forum object to include post count and the associated user
+            const formattedForum = {
+                id: forum.id,
+                title: forum.title,
+                // Counting posts associated with the forum
+                postCount: forum.posts.length,
+                // Getting the username of the user who owns the forum
+                createdBy: forum.user.username,
+            };
             return formattedForum;
         });
 
-        console.log(forums);
-
-        res.render("forums", {
+        res.render('forums', {
             forums,
             is_admin: req.session.is_admin,
             logged_in: req.session.logged_in,
@@ -42,7 +52,7 @@ router.get('/addpost', withAuth, async (req, res) => {
     });
 });
 
-router.get('/:id', async (req, res) => { 
+router.get('/:id', async (req, res) => {
     try {
         const forumData = await Forum.findByPk(req.params.id);
         const forum = forumData.map((forum) => {
@@ -58,7 +68,7 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-    
+
 });
 
 module.exports = router;
