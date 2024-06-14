@@ -30,9 +30,17 @@ Forum.belongsTo(User, {
 User.hasMany(Forum, {
     foreignKey: 'user_id',
 })
+User.hasMany(Post, {
+    foreignKey: 'user_id',
+})
+
 
 Post.belongsTo(Forum, {
     foreignKey: 'forum_id',
+    onDelete: 'CASCADE'
+})
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 })
 

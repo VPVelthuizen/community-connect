@@ -46,12 +46,6 @@ router.get('/add', withAuth, withAdmin, async (req, res) => {
     });
 });
 
-router.get('/addpost', withAuth, async (req, res) => {
-    res.render("add-post", {
-        logged_in: req.session.logged_in,
-    });
-});
-
 router.get('/:id', async (req, res) => {
     try {
         const forum = await Forum.findByPk(req.params.id, {
@@ -79,7 +73,7 @@ router.get('/:id', async (req, res) => {
             posts: forum.posts.map(post => ({
                 id: post.id,
                 title: post.title,
-                content: post.content,
+                body: post.body,
                 // Add more post data as needed
             })),
             logged_in: req.session.logged_in,
