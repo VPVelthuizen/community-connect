@@ -129,6 +129,10 @@ h2 {
   background-color: var(--yellow);
 }
 
+.forum:hover {
+color: var(--orange);
+}
+
 /* MISSION STYLE */
 .mission-container {
   min-height: 520px;

@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Forum, User, Post } = require('../../models')
 const withAuth = require('../../utils/withAuth')
-const withAdmin = require('../../utils/withAdmin')
+const withAdmin = require('../../utils/withAdmin');
+const { format_date } = require('../../utils/dateUtils');
 
 router.get('/', async (req, res) => {
     try {
@@ -52,30 +53,27 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: Post,
-                },
-                {
-                    model: User,
-                    attributes: ['username'],
+                    include: {
+                        model: User,
+                        attributes: ['username'],
+                    },
                 },
             ],
         });
 
-        // Accessing all data for each post within the forum
-        // const formattedForum = {
-        
-        // };
-        
+        const formattedPosts = forum.posts.map(post => ({
+            id: post.id,
+            title: post.title,
+            body: post.body,
+            date_created: format_date(post.date_created),
+            createdBy: post.user.username,
+        }));
+
         res.render("forum", {
             id: forum.id,
             title: forum.title,
             description: forum.description,
-            createdBy: forum.user.username,
-            posts: forum.posts.map(post => ({
-                id: post.id,
-                title: post.title,
-                body: post.body,
-                // Add more post data as needed
-            })),
+            posts: formattedPosts,
             logged_in: req.session.logged_in,
         });
 
