@@ -12,7 +12,7 @@ router.get('/:id', async (req, res) => {
             },
             {
                 model: Event,
-                attributes: ['name', 'city', 'state', 'time', 'date']
+                attributes: ['id', 'name', 'city', 'state', 'time', 'date']
             }]
         });
 

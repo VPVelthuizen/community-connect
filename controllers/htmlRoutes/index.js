@@ -12,6 +12,7 @@ const company = require('./company.js');
 const profile = require('./profile.js');
 const edit = require('./edit.js')
 const addPostRoutes = require('./addPost')
+const postsRoutes = require('./posts.js')
 
 router.use('/', homepage);
 router.use('/login', login);
@@ -24,6 +25,7 @@ router.use('/events', events);
 router.use('/edit', edit);
 router.use('/forums', forums);
 router.use('/company', company);
-router.use('/addpost', addPostRoutes)
+router.use('/addpost', addPostRoutes);
+router.use('/posts', postsRoutes);
 
 module.exports = router;

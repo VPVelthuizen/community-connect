@@ -8,7 +8,7 @@
     <div class="more-info col s12">
         <span class="event-details">{{city}}, {{state}}</span>
         <span class="event-details">From {{time}} to {{end_time}}</span>
-        <h3>{{description}}</h4>
+        <h5>{{description}}</h5>
     </div>
     <div class="col s12 l6 company">
         <div class="bolder-container">
@@ -41,6 +41,7 @@
             Event?</a> 
             </div>
             <div class="team">
+            {{#if attending_users.length}}
             {{#each attending_users}}
             <div class="user-container">
                 <h5 class="username-company">{{username}}</h4>
@@ -52,6 +53,9 @@
                     {{/if}}
             </div>
             {{/each}}
+            {{else}}
+            <h1 class="black-text">No One Attending This Event Yet!</h1>
+            {{/if}}
         </div>
     </div>
 </div>
