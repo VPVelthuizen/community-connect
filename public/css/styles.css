@@ -299,7 +299,7 @@ h4 {
 .link-1:hover h3,
 .link-2:hover h3,
 .link-3:hover h3 {
-  color: var(--black);
+  color: red;
 }
 
 .link-1:hover,
