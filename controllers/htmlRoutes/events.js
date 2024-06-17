@@ -3,7 +3,7 @@ const { Company, Event, User } = require('../../models')
 const withAuth = require('../../utils/withAuth')
 
 const { formatTime } = require('../../utils/formatTime');
-const { format_date } = require('../../utils/dateUtils')
+const format_date = require('../../utils/dateUtils')
 
 router.get('/', async (req, res) => {
     try {
@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
                 model: Company,
             }
         });
+        console.log(eventData)
         const events = eventData.map((event) => {
             const formattedEvent = event.get({ plain: true });
             // Format the time of each event

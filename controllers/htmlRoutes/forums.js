@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Forum, User, Post } = require('../../models')
 const withAuth = require('../../utils/withAuth')
 const withAdmin = require('../../utils/withAdmin');
-const { format_date } = require('../../utils/dateUtils');
+const format_date = require('../../utils/dateUtils');
 
 router.get('/', async (req, res) => {
     try {

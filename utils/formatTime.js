@@ -1,16 +1,12 @@
+const { format } = require('date-fns');
+
 module.exports = {
     formatTime: (militaryTime) => {
         const [hours, minutes] = militaryTime.split(':');
-        let formattedTime = '';
+        const date = new Date();
+        date.setHours(hours);
+        date.setMinutes(minutes);
 
-        if (hours < 12) {
-            formattedTime = `${hours}:${minutes} AM`;
-        } else if (hours === '12') {
-            formattedTime = `12:${minutes} PM`;
-        } else {
-            formattedTime = `${hours - 12}:${minutes} PM`;
-        }
-
-        return formattedTime;
+        return format(date, "h:mm a");
     }
 };
