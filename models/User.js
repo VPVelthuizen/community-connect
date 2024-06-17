@@ -34,11 +34,11 @@ User.init(
       allowNull: true,
     },
     company_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'company',
-            key: 'id',
-          },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'company',
+        key: 'id',
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -72,7 +72,8 @@ User.init(
       },
       beforeUpdate: async (updatedUserData) => {
         if (updatedUserData.password) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+          console.log(updatedUserData.password)
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         }
         return updatedUserData;
       },

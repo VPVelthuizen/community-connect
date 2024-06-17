@@ -69,24 +69,23 @@ router.put('/', async (req, res) => {
         if (req.body.email) {
             dataToUpdate.email = req.body.email;
         }
-        if (req.body.newPassword) {
-            dataToUpdate.password = req.body.newPassword;
+        if (req.body.password) {
+            dataToUpdate.password = req.body.password;
         }
         if (req.body.phone) {
             dataToUpdate.phone = req.body.phone;
         }
 
+        console.log(req.body)
+
         // Update the user data in the database based on the user_id in the session
         await User.update(dataToUpdate, {
             where: {
-                id: req.session.user_id
-            }
+                id: req.session.user_id,
+            },
         });
 
-        // Fetch the updated user data from the database
-        const updatedUserData = await User.findByPk(req.session.user_id);
-
-        return res.status(200).json(updatedUserData);
+        return res.status(200).json({ message: 'update complete!' });
     } catch (err) {
         return res.status(400).json(err);
     }
