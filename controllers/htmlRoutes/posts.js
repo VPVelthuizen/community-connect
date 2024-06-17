@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models')
-const { format_date } = require('../../utils/dateUtils');
+const format_date = require('../../utils/dateUtils');
 
 
 router.get('/:id', async (req, res) => {
