@@ -54,5 +54,3 @@ Vincent Velthuizen: [Github](https://github.com/VPVelthuizen)
 ## CommUnity Contributions
 
 We believe in the power of collaboration and are always open to new contributors. If you have skills to share or suggestions to improve our project, we’d love to hear from you. Join us in making this project better for everyone!
-
-## Testing
